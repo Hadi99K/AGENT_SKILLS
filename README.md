@@ -64,6 +64,56 @@ git clone https://github.com/Hadi99K/AGENT_SKILLS.git
 cd AGENT_SKILLS
 ```
 
+### 🔧 Troubleshooting: `fatal: unable to access` / Empty reply from server
+
+If you see an error like this when running `git clone`:
+
+```
+fatal: unable to access 'https://github.com/Hadi99K/AGENT_SKILLS.git/': Empty reply from server
+```
+
+Don't worry — this is almost always a network issue, not a problem with the repository itself. Follow these steps to fix it:
+
+#### Step 1 — Check your internet connection
+Make sure you are connected to the internet. Open your browser and visit [https://github.com](https://github.com). If the page does not load, fix your connection first.
+
+#### Step 2 — Double-check the URL
+Make sure you copied the URL exactly. The correct clone URL for this repo is:
+```
+https://github.com/Hadi99K/AGENT_SKILLS.git
+```
+There should be no extra spaces or characters.
+
+#### Step 3 — Check if GitHub is down
+Visit [https://githubstatus.com](https://githubstatus.com) to see if GitHub is having an outage. If it shows incidents, wait a few minutes and try again.
+
+#### Step 4 — Disable VPN (if you are using one)
+VPNs can sometimes block GitHub traffic. Try turning off your VPN, then run the `git clone` command again.
+
+#### Step 5 — Temporarily disable your Firewall or Security Software
+Windows Firewall or antivirus software can block Git network requests. Temporarily disable them, try the clone, then re-enable them afterwards.
+
+> ⚠️ **Re-enable your security software after testing!**
+
+#### Step 6 — Try a different network
+Switch to a different Wi-Fi network, or use your mobile phone as a hotspot. This rules out issues with your current network or ISP.
+
+#### Step 7 — Try opening a new Command Prompt
+Sometimes environment variables (like old proxy settings) can cause issues. Open a **fresh** Command Prompt or PowerShell window and try again.
+
+#### Step 8 — Try on a different machine
+If possible, try the same `git clone` command on another computer. If it works there, the issue is specific to your machine's network or settings.
+
+#### Step 9 — Check for proxy settings
+If you are on a corporate or school network, there may be a proxy. Check with your network administrator or try:
+```bash
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
+Then retry the clone.
+
+> 💡 **Still stuck?** Open an issue on the [issues page](https://github.com/Hadi99K/AGENT_SKILLS/issues) and describe your error — we are happy to help!
+
 ---
 
 ## 💡 Usage
@@ -72,11 +122,17 @@ Each skill lives in its own folder and is defined by a `SKILL.md` file. Load the
 
 ### 📂 Where Are Skills Stored?
 
+> **📌 Note:** The skills in this repository are located under the **Project config** path:
+> ```
+> .opencode/skills/
+> ```
+> This means each skill lives at `.opencode/skills/<skill-name>/SKILL.md` inside your project folder.
+
 Skills are loaded by your AI coding assistant from one of two locations:
 
 | Scope | Path |
 |---|---|
-| **Project (local)** | `.opencode/skills/<name>/SKILL.md` inside your project folder |
+| **Project (local)** ✅ | `.opencode/skills/<name>/SKILL.md` inside your project folder |
 | **Global (all projects)** | `~/.config/opencode/skills/<name>/SKILL.md` on your computer |
 
 - Use the **Project config** path when you want a skill available only for a specific repository.
