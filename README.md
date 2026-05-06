@@ -1,4 +1,4 @@
-# 🤖 AGENT_SKILLS
+# 🤖 Agentic_System
 
 > A collection of plug-and-play AI agent skills for project coordination, phase management, and multi-agent synchronization.
 
@@ -9,9 +9,7 @@
 
 ## 📖 Introduction
 
-**AGENT_SKILLS** is an open-source repository of reusable AI agent skills designed to help developers manage structured, multi-agent workflows directly inside their codebases.
-
-Whether you are starting a brand-new project or wrapping up a development phase, these skills give your AI agents clear, repeatable instructions to keep your work organized and your team (human or AI) in sync.
+Welcome to **Agentic_System**! This project contains simple skills (small tools) that help you automate or manage common tasks with agents. You can quickly add these skills to your workflow or project. If you're new, just follow the instructions below to get started!
 
 ---
 
