@@ -124,6 +124,8 @@ That's it! The skill is now ready to use. 🎉
 
 Each skill lives in its own folder and is defined by a `SKILL.md` file. Load the skill into your AI agent by pointing it at the relevant `SKILL.md`, or by copying its contents into your agent's skill/instruction configuration.
 
+> 📁 **Skills are located in Project config:** `.opencode/skills/`
+
 ### 📂 Where Are Skills Stored?
 
 Skills are loaded by your AI coding assistant from one of two locations:
@@ -203,4 +205,5 @@ Please check the [issues page](https://github.com/Hadi99K/AGENT_SKILLS/issues) b
 
 ## 📝 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is open-source and available under the [MIT License](LICENSE).  
+Copyright © 2026 [Hadi99K](https://github.com/Hadi99K)
