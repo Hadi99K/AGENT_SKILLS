@@ -70,6 +70,34 @@ cd AGENT_SKILLS
 
 Each skill lives in its own folder and is defined by a `SKILL.md` file. Load the skill into your AI agent by pointing it at the relevant `SKILL.md`, or by copying its contents into your agent's skill/instruction configuration.
 
+### 📂 Where Are Skills Stored?
+
+Skills are loaded by your AI coding assistant from one of two locations:
+
+| Scope | Path |
+|---|---|
+| **Project (local)** | `.opencode/skills/<name>/SKILL.md` inside your project folder |
+| **Global (all projects)** | `~/.config/opencode/skills/<name>/SKILL.md` on your computer |
+
+- Use the **Project config** path when you want a skill available only for a specific repository.
+- Use the **Global config** path when you want a skill available across all your projects.
+
+> **Example – adding `init-agent-sync` to a project:**
+> ```bash
+> mkdir -p .opencode/skills/init-agent-sync
+> cp init-agent-sync/SKILL.md .opencode/skills/init-agent-sync/SKILL.md
+> ```
+
+### ▶️ Running a Skill
+
+Once a skill is placed in one of the locations above, you can run it directly from your AI assistant:
+
+1. Type the `/skills` command in your AI assistant's chat or terminal.
+2. A list of all your saved skills will appear.
+3. Select the skill you want to run from the list.
+
+> **Tip:** If you don't see a skill listed, double-check that its `SKILL.md` file is saved in one of the two paths shown in the table above.
+
 ### Using `init-agent-sync`
 
 ```bash
