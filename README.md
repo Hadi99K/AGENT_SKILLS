@@ -66,6 +66,60 @@ cd AGENT_SKILLS
 
 ---
 
+## ⚡ Quick Install a Single Skill (No Git Required)
+
+> **You do not need to clone or download this entire repository.** You can grab just the skill file you need in a few simple steps.
+
+### Option A — Download with a command (recommended for beginners)
+
+Open your terminal and run the commands for the skill(s) you want:
+
+**`init-agent-sync` — project install**
+```bash
+mkdir -p .opencode/skills/init-agent-sync
+curl -o .opencode/skills/init-agent-sync/SKILL.md \
+  https://raw.githubusercontent.com/Hadi99K/AGENT_SKILLS/main/init-agent-sync/SKILL.md
+```
+
+**`wrap-phase` — project install**
+```bash
+mkdir -p .opencode/skills/wrap-phase
+curl -o .opencode/skills/wrap-phase/SKILL.md \
+  https://raw.githubusercontent.com/Hadi99K/AGENT_SKILLS/main/wrap-phase/SKILL.md
+```
+
+> **Want it available in every project (global)?** Replace `.opencode/skills/` with `~/.config/opencode/skills/` in the commands above.
+>
+> For example:
+> ```bash
+> mkdir -p ~/.config/opencode/skills/init-agent-sync
+> curl -o ~/.config/opencode/skills/init-agent-sync/SKILL.md \
+>   https://raw.githubusercontent.com/Hadi99K/AGENT_SKILLS/main/init-agent-sync/SKILL.md
+> ```
+
+---
+
+### Option B — Download manually (no terminal needed)
+
+1. **Open the skill file on GitHub:**
+   - [`init-agent-sync/SKILL.md`](https://github.com/Hadi99K/AGENT_SKILLS/blob/main/init-agent-sync/SKILL.md)
+   - [`wrap-phase/SKILL.md`](https://github.com/Hadi99K/AGENT_SKILLS/blob/main/wrap-phase/SKILL.md)
+
+2. Click the **Raw** button (top-right of the file view) to see the plain text.
+
+3. Press **Ctrl+A** (or Cmd+A on Mac) to select all, then **Ctrl+C** (Cmd+C) to copy.
+
+4. On your computer, create the folder for the skill. For example, for `init-agent-sync`:
+   - **Project only:** create `.opencode/skills/init-agent-sync/` inside your project folder.
+   - **All projects (global):** create `~/.config/opencode/skills/init-agent-sync/` in your home directory.
+   *(For `wrap-phase`, use `wrap-phase` instead of `init-agent-sync` in the path.)*
+
+5. Inside that folder, create a new file called `SKILL.md` and paste the copied text into it. Save the file.
+
+That's it! The skill is now ready to use. 🎉
+
+---
+
 ## 💡 Usage
 
 Each skill lives in its own folder and is defined by a `SKILL.md` file. Load the skill into your AI agent by pointing it at the relevant `SKILL.md`, or by copying its contents into your agent's skill/instruction configuration.
