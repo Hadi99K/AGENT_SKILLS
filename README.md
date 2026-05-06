@@ -124,6 +124,8 @@ That's it! The skill is now ready to use. 🎉
 
 Each skill lives in its own folder and is defined by a `SKILL.md` file. Load the skill into your AI agent by pointing it at the relevant `SKILL.md`, or by copying its contents into your agent's skill/instruction configuration.
 
+> 📁 **Skills are located in Project config:** `.opencode/skills/`
+
 ### 📂 Where Are Skills Stored?
 
 Skills are loaded by your AI coding assistant from one of two locations:
@@ -203,4 +205,20 @@ Please check the [issues page](https://github.com/Hadi99K/AGENT_SKILLS/issues) b
 
 ## 📝 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+### What is the MIT License? (Beginner-Friendly Explanation)
+
+The **MIT License** is one of the most popular open-source licenses in the world, and it is very permissive — meaning it gives you a lot of freedom. Here is what it means in plain English:
+
+- ✅ **You CAN use it** — for personal projects, school work, or even commercial products.
+- ✅ **You CAN copy, modify, and distribute it** — adapt the code however you like.
+- ✅ **You CAN use it in your own open-source project** — absolutely yes!
+- ✅ **You CAN use it in a closed-source / private project** — no problem.
+- ⚠️ **You MUST include the original copyright notice and license text** — whenever you share or distribute the code (or a modified version of it), you need to keep the `LICENSE` file intact.
+- ❌ **No warranty is provided** — the software is provided "as is", so the author is not responsible for any issues it may cause.
+
+**In short:** If you want to use these skills in your own open-source project, you are 100% free to do so — just keep the license notice included. 🎉
+
+---
+
+This project is open-source and available under the [MIT License](LICENSE).  
+Copyright © 2026 [Hadi99K](https://github.com/Hadi99K)
