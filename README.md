@@ -1,6 +1,6 @@
 # 🤖 Agentic Skills System
 
-> **A battle-tested suite of plug-and-play AI agent skills for project scaffolding, 15-phase roadmaps, deterministic memory, and multi-agent handoffs.**
+> **A battle-tested suite of plug-and-play AI agent skills for project scaffolding, 15-phase roadmaps, deterministic memory, team member logs, and multi-agent handoffs.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Compatibility: Antigravity | OpenCode | Claude Code](https://img.shields.io/badge/Compatibility-Antigravity%20%7C%20OpenCode%20%7C%20Claude-blue.svg)]()
@@ -10,35 +10,37 @@
 
 ## 💡 Why This Exists
 
-Most AI coding agents suffer from **context amnesia**: they build quick, unstructured MVPs, forget architectural constraints across sessions, hallucinate missing variables, and leave messy git histories. 
+Most AI coding agents suffer from **context amnesia**: they build quick, unstructured MVPs, forget architectural constraints across sessions, hallucinate missing variables, lose track of team members' contributions, and leave messy git histories. 
 
-This repository provides **deterministic, production-grade agent skills** that transform any AI assistant (Antigravity, Gemini, OpenCode, Claude Code, Cursor) into a disciplined engineering partner with persistent memory and structured workflows.
+This repository provides **deterministic, production-grade agent skills** that transform any AI assistant (Antigravity, Gemini, OpenCode, Claude Code, Cursor) into a disciplined engineering partner with persistent memory, team coordination, and structured workflows.
 
 ---
 
 ## ⚡ The Project Lifecycle Flow
 
-The 4 skills work in harmony to guide your software project from a rough back-of-the-napkin idea all the way to store publishing and maintenance:
+The 5 skills work in harmony to guide your software project from an initial concept to full team development, store publishing, and maintenance:
 
 ```mermaid
 graph TD
     A[💡 Step 1: App Idea & Concept] --> B[Skill: create-roadmap]
     B -->|Generates battle-tested progress.md| C[Skill: project-scaffold]
-    C -->|Scaffolds 7 memory files + Constitution| D[Skill: init-agent-sync]
-    D -->|Coordinates multi-agent task board| E[🔨 Active Coding & Iteration]
-    E -->|Phase or sprint complete| F[Skill: wrap-phase]
-    F -->|Summarizes, purges logs & auto-commits| D
+    C -->|Scaffolds 7 memory files + Constitution| D[Skill: team-summary]
+    D -->|Tracks individual team member logs & standups| E[Skill: init-agent-sync]
+    E -->|Coordinates session task board & handoffs| F[🔨 Active Coding & Iteration]
+    F -->|Sprint or phase complete| G[Skill: wrap-phase]
+    G -->|Summarizes, purges logs & auto-commits| E
 ```
 
 ---
 
-## 🛠️ The 4 Available Skills
+## 🛠️ The 5 Available Skills
 
 | Skill | Role | When to Use | Output Artifacts |
 | :--- | :--- | :--- | :--- |
 | **[`create-roadmap`](./create-roadmap/)** | **Master Product Roadmap** | Right after you pitch or explain a new app idea | `progress.md` (15 progressive phases) |
 | **[`project-scaffold`](./project-scaffold/)** | **Project Memory & Constitution** | Starting a new repository or structuring an existing one | `gemini.md`, `AGENT_SYNC.md`, `findings.md`, `crash-log.txt`, `.env` |
-| **[`init-agent-sync`](./init-agent-sync/)** | **Inter-Agent Coordination Hub** | When coordinating multiple AI agents or sessions | `AGENT_SYNC.md` (task board & handoff log) |
+| **[`team-summary`](./team-summary/)** | **Individual Member Summaries** | Logging who did what without overwriting teammates | `TEAM_SUMMARY.md` (isolated member standups & roster) |
+| **[`init-agent-sync`](./init-agent-sync/)** | **Inter-Agent Coordination Hub** | When coordinating active AI agents or sessions | `AGENT_SYNC.md` (task board & handoff log) |
 | **[`wrap-phase`](./wrap-phase/)** | **Sprint Wrap-up & Auto-Commit** | When finishing a phase or ending a development turn | Cleaned `AGENT_SYNC.md` + Git commit & push |
 
 ---
@@ -58,7 +60,7 @@ graph TD
 ### 2. `project-scaffold`
 *Scaffolds deterministic project memory and streamlines the B.L.A.S.T. protocol for any tech stack.*
 
-- **What it does**: Establishes the 7 essential project memory files:
+- **What it does**: Establishes the essential project memory files:
   1. `gemini.md` (Project Constitution: data schemas & invariants)
   2. `AGENT_SYNC.md` (Multi-agent synchronization hub)
   3. `progress.md` (Master phase roadmap)
@@ -74,7 +76,25 @@ graph TD
 
 ---
 
-### 3. `init-agent-sync`
+### 3. `team-summary`
+*Maintains individual, isolated work summaries for each team member or AI agent persona in `TEAM_SUMMARY.md`.*
+
+- **What it does**: Creates and updates `TEAM_SUMMARY.md`, maintaining an at-a-glance Team Roster table followed by isolated sections for each contributor. Each member has their own dedicated area recording:
+  - Role & domain ownership
+  - Active focus & next tasks
+  - Recent accomplishments with dates
+  - Files touched / owned
+  - Blockers & notes for peers
+- **Why it matters**: In multi-developer or multi-agent teams, contributors often overwrite each other's status notes. `team-summary` guarantees that every member's work history remains distinct and protected.
+- **Trigger phrases**:
+  - *"Update my team summary"*
+  - *"Log what I did in the team file"*
+  - *"Add member summary for [Name]"*
+  - *"Create TEAM_SUMMARY.md"*
+
+---
+
+### 4. `init-agent-sync`
 *Initializes a lightweight agent coordination and handoff hub.*
 
 - **What it does**: Creates an `AGENT_SYNC.md` file with a live session task board (`[ ]`, `[~]`, `[x]`), active branch status, and a dated chronological handoff log.
@@ -85,7 +105,7 @@ graph TD
 
 ---
 
-### 4. `wrap-phase`
+### 5. `wrap-phase`
 *Summarizes accomplishments, prunes stale logs, and commits your progress.*
 
 - **What it does**: Reads your session work, appends a structured `## 📖 Phase Summary` to `AGENT_SYNC.md`, clears completed tasks, keeps only the most recent handoff message, and automatically stages, commits, and pushes to git.
@@ -118,8 +138,8 @@ You can install these skills **globally** (available in every project on your ma
 
 *Windows (PowerShell):*
 ```powershell
-# Create global directories
-$skills = @("create-roadmap", "project-scaffold", "init-agent-sync", "wrap-phase")
+# Create global directories and download skills
+$skills = @("create-roadmap", "project-scaffold", "team-summary", "init-agent-sync", "wrap-phase")
 foreach ($s in $skills) {
     New-Item -ItemType Directory -Force "$HOME\.gemini\config\skills\$s"
     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Hadi99K/AGENT_SKILLS/main/$s/SKILL.md" -OutFile "$HOME\.gemini\config\skills\$s\SKILL.md"
@@ -128,7 +148,7 @@ foreach ($s in $skills) {
 
 *macOS / Linux (Bash):*
 ```bash
-for s in create-roadmap project-scaffold init-agent-sync wrap-phase; do
+for s in create-roadmap project-scaffold team-summary init-agent-sync wrap-phase; do
   mkdir -p ~/.gemini/config/skills/$s
   curl -fsSL https://raw.githubusercontent.com/Hadi99K/AGENT_SKILLS/main/$s/SKILL.md -o ~/.gemini/config/skills/$s/SKILL.md
 done
@@ -138,7 +158,7 @@ done
 
 *Windows (PowerShell):*
 ```powershell
-$skills = @("create-roadmap", "project-scaffold", "init-agent-sync", "wrap-phase")
+$skills = @("create-roadmap", "project-scaffold", "team-summary", "init-agent-sync", "wrap-phase")
 foreach ($s in $skills) {
     New-Item -ItemType Directory -Force ".agents\skills\$s"
     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Hadi99K/AGENT_SKILLS/main/$s/SKILL.md" -OutFile ".agents\skills\$s\SKILL.md"
@@ -147,7 +167,7 @@ foreach ($s in $skills) {
 
 *macOS / Linux (Bash):*
 ```bash
-for s in create-roadmap project-scaffold init-agent-sync wrap-phase; do
+for s in create-roadmap project-scaffold team-summary init-agent-sync wrap-phase; do
   mkdir -p .agents/skills/$s
   curl -fsSL https://raw.githubusercontent.com/Hadi99K/AGENT_SKILLS/main/$s/SKILL.md -o .agents/skills/$s/SKILL.md
 done
@@ -162,6 +182,7 @@ done
 # Pick and install what you need
 mkdir -p .opencode/skills/create-roadmap && curl -o .opencode/skills/create-roadmap/SKILL.md https://raw.githubusercontent.com/Hadi99K/AGENT_SKILLS/main/create-roadmap/SKILL.md
 mkdir -p .opencode/skills/project-scaffold && curl -o .opencode/skills/project-scaffold/SKILL.md https://raw.githubusercontent.com/Hadi99K/AGENT_SKILLS/main/project-scaffold/SKILL.md
+mkdir -p .opencode/skills/team-summary && curl -o .opencode/skills/team-summary/SKILL.md https://raw.githubusercontent.com/Hadi99K/AGENT_SKILLS/main/team-summary/SKILL.md
 mkdir -p .opencode/skills/init-agent-sync && curl -o .opencode/skills/init-agent-sync/SKILL.md https://raw.githubusercontent.com/Hadi99K/AGENT_SKILLS/main/init-agent-sync/SKILL.md
 mkdir -p .opencode/skills/wrap-phase && curl -o .opencode/skills/wrap-phase/SKILL.md https://raw.githubusercontent.com/Hadi99K/AGENT_SKILLS/main/wrap-phase/SKILL.md
 ```
@@ -181,15 +202,15 @@ cd AGENT_SKILLS
 
 You can then copy any skill folder directly into your project's skill directory:
 ```bash
-# Example: Copy create-roadmap to your Antigravity project
-cp -r create-roadmap /path/to/your/project/.agents/skills/
+# Example: Copy team-summary to your Antigravity project
+cp -r team-summary /path/to/your/project/.agents/skills/
 ```
 
 ---
 
 ### Method 3: Manual Download (No Terminal Needed)
 
-1. Navigate to the skill folder above (e.g., [`create-roadmap/SKILL.md`](./create-roadmap/SKILL.md)).
+1. Navigate to the skill folder above (e.g., [`team-summary/SKILL.md`](./team-summary/SKILL.md)).
 2. Click the **Raw** button in the top right.
 3. Press `Ctrl + A` (or `Cmd + A`), then `Ctrl + C` (or `Cmd + C`) to copy.
 4. In your project, create the folder `.agents/skills/<skill-name>/` (or `.opencode/skills/<skill-name>/`).
@@ -205,9 +226,11 @@ Once installed, your AI agent automatically detects the skills. Simply prompt yo
    > *"Here is my idea for an Android productivity app: [Describe idea]. Use the `create-roadmap` skill to build our roadmap."*
 2. **Project Setup:**
    > *"Run the `project-scaffold` skill to set up our project memory and constitution."*
-3. **Session Handoff:**
+3. **Team Activity & Standups:**
+   > *"Update my section in `TEAM_SUMMARY.md` with the dock layout fixes we finished today."*
+4. **Session Handoff:**
    > *"Update `AGENT_SYNC.md` with what we did and prep for the next session."*
-4. **Sprint Wrap-up:**
+5. **Sprint Wrap-up:**
    > *"Use `wrap-phase` to wrap up Phase 1, summarize what was built, and commit."*
 
 ---
@@ -232,7 +255,7 @@ We welcome community skills, improvements, and translations!
      compatibility: opencode
      metadata:
        audience: developers
-       workflow: project-planning
+       workflow: team-collaboration
      ---
      ```
 4. **Commit & Push**:
